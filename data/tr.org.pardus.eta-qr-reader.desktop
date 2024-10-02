@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=ETA QR Reader
+Name[tr]=ETA QR Okuyucu
+Comment=Allows you to read QR code from the screen
+Comment[tr]=Ekrandan qr kodunu okumanızı sağlar
+Exec=eta-qr-reader
+Icon=eta-qr-reader
+Terminal=false
+Type=Application
+Categories=GTK;Utility;
+StartupNotify=true
+Keywords=qr;code;
+Keywords[tr]=qr;kod

@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct  2 14:53:13 2024
+
+@author: fatihaltun
+"""
+
+import sys
+
+sys.path.insert(0, '/usr/share/pardus/eta-qr-reader/src/')
+
+import Main

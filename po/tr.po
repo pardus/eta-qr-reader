@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-02 17:36+0300\n"
-"PO-Revision-Date: 2024-10-02 17:38+0300\n"
+"POT-Creation-Date: 2024-10-04 02:07+0300\n"
+"PO-Revision-Date: 2024-10-04 02:08+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
 "Language: tr\n"
@@ -19,22 +19,33 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Gtranslator 42.0\n"
 
-#: src/MainWindow.py:63
+#: src/MainWindow.py:64
 msgid "ETA QR Reader"
 msgstr "ETA QR Okuyucu"
 
-#: src/MainWindow.py:66
+#: src/MainWindow.py:67
 msgid "Read QR Code"
 msgstr "QR Kod Oku"
 
-#: src/MainWindow.py:70
+#: src/MainWindow.py:71
 msgid "Quit"
 msgstr "Çıkış"
 
-#: src/MainWindow.py:128
+#: src/MainWindow.py:99
+msgid "No screenshot application found on your system."
+msgstr "Sisteminizde ekran görüntüsü uygulaması bulunamadı."
+
+#: src/MainWindow.py:100
+msgid ""
+"Supported applications are gnome-screenshot, xfce-screenshooter, kde-"
+"spectacle."
+msgstr ""
+"Desteklenen uygulamalar; gnome-screenshot, xfce-screenshooter, kde-spectacle."
+
+#: src/MainWindow.py:167
 msgid "No QR Code found."
 msgstr "QR Kod bulunamadı."
 
-#: src/MainWindow.py:139
+#: src/MainWindow.py:180
 msgid "QR Code Content"
 msgstr "QR Kod İçeriği"

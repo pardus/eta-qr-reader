@@ -77,9 +77,25 @@ class MainWindow(object):
         self.indicator.set_menu(self.menu)
 
     def on_menu_action(self, *args):
-        print("action")
-        command = ["/usr/bin/gnome-screenshot", "-a", "-f", self.screenshot_path]
-        self.start_process(command)
+        ss_command = None
+        if os.path.isfile("/usr/bin/gnome-screenshot"):
+            ss_command = ["/usr/bin/gnome-screenshot", "-a", "-f", self.screenshot_path]
+            print("using gnome-screenshot")
+        elif os.path.isfile("/usr/bin/xfce4-screenshooter"):
+            ss_command = ["/usr/bin/xfce4-screenshooter", "-r", "-s", self.screenshot_path]
+            print("using xfce4-screenshooter")
+        elif os.path.isfile("/usr/bin/spectacle"):
+            ss_command = ["/usr/bin/spectacle", "-brn", "-o", self.screenshot_path]
+            print("using spectacle")
+
+        if ss_command is not None:
+            if os.path.isfile(self.screenshot_path):
+                os.remove(self.screenshot_path)
+            self.start_process(ss_command)
+        else:
+            self.show_message("<span color='red'><b>{}\n{}</b></span>".format(
+                _("No screenshot application found on your system."),
+                _("Supported applications are gnome-screenshot, xfce-screenshooter, kde-spectacle.")))
 
     def on_menu_quit_app(self, *args):
         self.main_window.get_application().quit()

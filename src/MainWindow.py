@@ -10,7 +10,7 @@ import os
 import re
 
 import gi
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageFilter
 from pyzbar.pyzbar import decode
 
 gi.require_version("GLib", "2.0")
@@ -77,6 +77,8 @@ class MainWindow(object):
         self.indicator.set_menu(self.menu)
 
     def on_menu_action(self, *args):
+        if self.dialog:
+            self.dialog.destroy()
         ss_command = None
         if os.path.isfile("/usr/bin/gnome-screenshot"):
             ss_command = ["/usr/bin/gnome-screenshot", "-a", "-f", self.screenshot_path]
@@ -95,7 +97,7 @@ class MainWindow(object):
         else:
             self.show_message("<span color='red'><b>{}\n{}</b></span>".format(
                 _("No screenshot application found on your system."),
-                _("Supported applications are gnome-screenshot, xfce-screenshooter, kde-spectacle.")))
+                _("Supported applications are gnome-screenshot, xfce-screenshooter, kde-spectacle.")), status=False)
 
     def on_menu_quit_app(self, *args):
         self.main_window.get_application().quit()
@@ -140,13 +142,34 @@ class MainWindow(object):
                 print("{}".format(qr_data))
                 self.show_message("{}".format(qr_data))
             else:
-                print("No QR Code found.")
-                self.show_message(_("No QR Code found."))
+                print("No QR Code found. Trying image processing.")
+                # resize 5x
+                width, height = image.size
+                new_size = (int(width * 5), int(height * 5))
+                image = image.resize(new_size, Image.Resampling.LANCZOS)
+                # grayscale
+                image = image.convert('L')
+                # contrast
+                enhancer = ImageEnhance.Contrast(image)
+                image = enhancer.enhance(20)
+                # sharpness
+                image = image.filter(ImageFilter.SHARPEN)
+                # some blur
+                image = image.filter(ImageFilter.GaussianBlur(radius=1.5))
+
+                decoded_objects = decode(image)
+                if decoded_objects:
+                    qr_data = decoded_objects[0].data.decode("utf-8")
+                    print("{}".format(qr_data))
+                    self.show_message("{}".format(qr_data))
+                else:
+                    print("No QR Code found.")
+                    self.show_message(_("No QR Code found."), status=False)
         except Exception as e:
             print("{}".format(e))
-            self.show_message("{}".format(e))
+            self.show_message("{}".format(e), status=False)
 
-    def show_message(self, content):
+    def show_message(self, content, status=True):
         if self.dialog:
             self.dialog.destroy()
         self.dialog = Gtk.MessageDialog(
@@ -191,7 +214,17 @@ class MainWindow(object):
 
         box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 13)
         box.pack_start(label, False, True, 0)
-        box.pack_start(button, False, True, 0)
+        if status:
+            box.pack_start(button, False, True, 0)
+        else:
+            retry_image = Gtk.Image.new_from_icon_name("view-refresh-symbolic", Gtk.IconSize.BUTTON)
+            retry_button = Gtk.Button.new()
+            retry_button.props.valign = Gtk.Align.CENTER
+            retry_button.props.halign = Gtk.Align.CENTER
+            retry_button.add(retry_image)
+            retry_button.connect('clicked', self.on_menu_action)
+            box.pack_start(retry_button, False, True, 0)
+
         box.set_margin_top(0)
         box.set_margin_bottom(13)
         box.set_margin_start(13)

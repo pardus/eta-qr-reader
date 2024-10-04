@@ -138,8 +138,12 @@ class MainWindow(object):
             image = Image.open(self.screenshot_path)
             decoded_objects = decode(image)
             if decoded_objects:
-                qr_data = decoded_objects[0].data.decode("utf-8")
-                print("{}".format(qr_data))
+                qr_data = ""
+                for i, decoded_object in enumerate(decoded_objects):
+                    qr_data += "{}".format(decoded_object.data.decode("utf-8"))
+                    if i < len(decoded_objects) - 1:
+                        qr_data += "\n\n-----\n\n"
+                    print("{}".format(qr_data))
                 self.show_message("{}".format(qr_data))
             else:
                 print("No QR Code found. Trying image processing.")
@@ -159,8 +163,12 @@ class MainWindow(object):
 
                 decoded_objects = decode(image)
                 if decoded_objects:
-                    qr_data = decoded_objects[0].data.decode("utf-8")
-                    print("{}".format(qr_data))
+                    qr_data = ""
+                    for i, decoded_object in enumerate(decoded_objects):
+                        qr_data += "{}".format(decoded_object.data.decode("utf-8"))
+                        if i < len(decoded_objects) - 1:
+                            qr_data += "\n\n-----\n\n"
+                        print("{}".format(qr_data))
                     self.show_message("{}".format(qr_data))
                 else:
                     print("No QR Code found.")
@@ -231,9 +239,20 @@ class MainWindow(object):
         box.set_margin_end(13)
 
         content_area = self.dialog.get_content_area()
-        content_area.pack_start(box, False, False, 0)
-        box.show_all()
 
+        if (len(content.splitlines())) > 34:
+            scrolled_window = Gtk.ScrolledWindow()
+            scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+            scrolled_window.set_min_content_width(610)
+            scrolled_window.set_min_content_height(610)
+            scrolled_window.add(box)
+            content_area.pack_start(scrolled_window, False, False, 0)
+            scrolled_window.show_all()
+        else:
+            content_area.pack_start(box, False, False, 0)
+            box.show_all()
+
+        self.dialog.set_default_icon_name("eta-qr-reader")
         self.dialog.set_position(Gtk.WindowPosition.CENTER)
         self.dialog.present()
         self.dialog.set_keep_above(True)

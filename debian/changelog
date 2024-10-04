@@ -1,3 +1,14 @@
+eta-qr-reader (0.0.2) unstable; urgency=medium
+
+  * Add xfce4-screenshooter and spectacle support
+  * Add try image processing if qr not found and retry button
+  * Update pot file
+  * Update Turkish translations
+  * Add title and icon to mainwindow
+  * Add scrolled window for long texts
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Fri, 04 Oct 2024 03:09:41 +0300
+
 eta-qr-reader (0.0.1) unstable; urgency=medium
 
   * Initial Commit

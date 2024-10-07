@@ -150,7 +150,11 @@ class MainWindow(object):
                 # resize 5x
                 width, height = image.size
                 new_size = (int(width * 5), int(height * 5))
-                image = image.resize(new_size, Image.Resampling.LANCZOS)
+                try:
+                    image = image.resize(new_size, Image.Resampling.LANCZOS)
+                except Exception as e:
+                    print("{}".format(e))
+                    pass
                 # grayscale
                 image = image.convert('L')
                 # contrast

@@ -85,6 +85,11 @@ class MainWindow(object):
         self.menu.show_all()
         self.indicator.set_menu(self.menu)
 
+    def refresh_indicator(self):
+        GLib.idle_add(self.indicator.set_status, appindicator.IndicatorStatus.PASSIVE)
+        GLib.idle_add(self.indicator.set_status, appindicator.IndicatorStatus.ACTIVE)
+        GLib.idle_add(self.menu.show_all)
+
     def on_menu_action(self, *args):
         if self.dialog:
             self.dialog.destroy()

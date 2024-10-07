@@ -49,9 +49,14 @@ data_files = [
                    "src/MainWindow.py",
                    "src/UserSettings.py",
                    "src/__version__"]),
+                 ("/usr/share/pardus/eta-qr-reader/data",
+                  ["data/tr.org.pardus.eta-qr-reader.desktop",
+                   "data/tr.org.pardus.eta-qr-reader-autostart.desktop"]),
                  ("/usr/share/icons/hicolor/scalable/apps/",
                   ["data/eta-qr-reader.svg",
-                   "data/eta-qr-reader-symbolic.svg"])
+                   "data/eta-qr-reader-symbolic.svg"]),
+                 ("/etc/skel/.config/autostart",
+                  ["data/tr.org.pardus.eta-qr-reader-autostart.desktop"])
              ] + create_mo_files()
 
 setup(

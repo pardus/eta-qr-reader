@@ -16,6 +16,7 @@ from pyzbar.pyzbar import decode
 gi.require_version("GLib", "2.0")
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GObject, GLib, Gdk
+from UserSettings import UserSettings
 
 try:
     gi.require_version('AppIndicator3', '0.1')
@@ -48,6 +49,9 @@ class MainWindow(object):
         self.define_variables()
         self.main_window.set_application(application)
 
+        self.user_settings()
+        self.UserSettings.set_autostart(self.UserSettings.config_autostart)
+
         self.init_indicator()
 
     def define_components(self):
@@ -56,6 +60,11 @@ class MainWindow(object):
     def define_variables(self):
         self.screenshot_path = "/tmp/eta-qr-reader-screenshot.png"
         self.dialog = None
+
+    def user_settings(self):
+        self.UserSettings = UserSettings()
+        self.UserSettings.create_default_config()
+        self.UserSettings.read_config()
 
     def init_indicator(self):
         self.indicator = appindicator.Indicator.new(

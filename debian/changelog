@@ -1,3 +1,11 @@
+eta-qr-reader (0.0.3) unstable; urgency=medium
+
+  * Add exception for PIL resampling
+  * Add user config autostart
+  * Add refresh_indicator
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Mon, 07 Oct 2024 17:05:58 +0300
+
 eta-qr-reader (0.0.2) unstable; urgency=medium
 
   * Add xfce4-screenshooter and spectacle support

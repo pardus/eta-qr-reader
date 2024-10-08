@@ -58,7 +58,7 @@ class MainWindow(object):
         self.main_window = self.GtkBuilder.get_object("ui_main_window")
 
     def define_variables(self):
-        self.screenshot_path = "/tmp/eta-qr-reader-screenshot.png"
+        self.screenshot_path = "/tmp/eta-qr-reader-screenshot-{}.png".format(GLib.get_user_name())
         self.dialog = None
 
     def user_settings(self):
@@ -106,7 +106,10 @@ class MainWindow(object):
 
         if ss_command is not None:
             if os.path.isfile(self.screenshot_path):
-                os.remove(self.screenshot_path)
+                try:
+                    os.remove(self.screenshot_path)
+                except Exception as e:
+                    self.show_message("{}".format(e), status=False)
             self.start_process(ss_command)
         else:
             self.show_message("<span color='red'><b>{}\n{}</b></span>".format(

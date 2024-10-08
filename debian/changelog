@@ -1,3 +1,9 @@
+eta-qr-reader (0.0.4) unstable; urgency=medium
+
+  * Add username to screenshot path
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Tue, 08 Oct 2024 11:06:45 +0300
+
 eta-qr-reader (0.0.3) unstable; urgency=medium
 
   * Add exception for PIL resampling

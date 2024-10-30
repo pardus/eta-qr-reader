@@ -8,14 +8,14 @@ ETA QR Reader is an application that reads QR codes from the screen.
 
 This application is developed based on Python3 and GTK+ 3. Dependencies:
 ```bash
-gir1.2-ayatanaappindicator3-0.1 gir1.2-glib-2.0 gir1.2-gtk-3.0
+gir1.2-ayatanaappindicator3-0.1 python3-pyzbar python3-pil gir1.2-glib-2.0 gir1.2-gtk-3.0
 ```
 
 ### **Run Application from Source**
 
 Install dependencies
 ```bash
-sudo apt install gir1.2-ayatanaappindicator3-0.1 gir1.2-glib-2.0 gir1.2-gtk-3.0
+sudo apt install gir1.2-ayatanaappindicator3-0.1 python3-pyzbar python3-pil gir1.2-glib-2.0 gir1.2-gtk-3.0
 ```
 
 Clone the repository

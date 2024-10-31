@@ -1,7 +1,9 @@
 [Desktop Entry]
 Name=ETA QR Reader
+Name[pt]=Leitor QR ETA
 Name[tr]=ETA QR Okuyucu
 Comment=Allows you to read QR code from the screen
+Comment[pt]=Permite-lhe ler o código QR a partir do ecrã
 Comment[tr]=Ekrandan qr kodunu okumanızı sağlar
 Exec=eta-qr-reader --tray
 Icon=eta-qr-reader
@@ -9,4 +11,5 @@ Terminal=false
 Type=Application
 Categories=GTK;Utility;
 Keywords=qr;code;
+Keywords[pt]=qr;código
 Keywords[tr]=qr;kod

@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-04 02:07+0300\n"
+"PO-Revision-Date: 2024-10-31 21:46+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#: src/MainWindow.py:64
+msgid "ETA QR Reader"
+msgstr "Leitor QR ETA"
+
+#: src/MainWindow.py:67
+msgid "Read QR Code"
+msgstr "Ler código QR"
+
+#: src/MainWindow.py:71
+msgid "Quit"
+msgstr "Sair"
+
+#: src/MainWindow.py:99
+msgid "No screenshot application found on your system."
+msgstr "Nenhuma aplicação de captura de ecrã encontrada no sistema."
+
+#: src/MainWindow.py:100
+msgid ""
+"Supported applications are gnome-screenshot, xfce-screenshooter, kde-"
+"spectacle."
+msgstr ""
+"As aplicações suportadas são gnome-screenshot, xfce-screenshooter, "
+"kde-spectacle."
+
+#: src/MainWindow.py:167
+msgid "No QR Code found."
+msgstr "Nenhum código QR encontrado."
+
+#: src/MainWindow.py:180
+msgid "QR Code Content"
+msgstr "Conteúdo do código QR"

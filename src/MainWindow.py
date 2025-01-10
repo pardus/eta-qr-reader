@@ -60,6 +60,7 @@ class MainWindow(object):
     def define_variables(self):
         self.screenshot_path = "/tmp/eta-qr-reader-screenshot-{}.png".format(GLib.get_user_name())
         self.dialog = None
+        self.in_progress = False
 
     def user_settings(self):
         self.UserSettings = UserSettings()
@@ -91,30 +92,36 @@ class MainWindow(object):
         GLib.idle_add(self.menu.show_all)
 
     def on_menu_action(self, *args):
-        if self.dialog:
-            self.dialog.destroy()
-        ss_command = None
-        if os.path.isfile("/usr/bin/gnome-screenshot"):
-            ss_command = ["/usr/bin/gnome-screenshot", "-a", "-f", self.screenshot_path]
-            print("using gnome-screenshot")
-        elif os.path.isfile("/usr/bin/xfce4-screenshooter"):
-            ss_command = ["/usr/bin/xfce4-screenshooter", "-r", "-s", self.screenshot_path]
-            print("using xfce4-screenshooter")
-        elif os.path.isfile("/usr/bin/spectacle"):
-            ss_command = ["/usr/bin/spectacle", "-brn", "-o", self.screenshot_path]
-            print("using spectacle")
+        if not self.in_progress:
 
-        if ss_command is not None:
-            if os.path.isfile(self.screenshot_path):
-                try:
-                    os.remove(self.screenshot_path)
-                except Exception as e:
-                    self.show_message("{}".format(e), status=False)
-            self.start_process(ss_command)
+            if self.dialog:
+                self.dialog.destroy()
+
+            ss_command = None
+            if os.path.isfile("/usr/bin/gnome-screenshot"):
+                ss_command = ["/usr/bin/gnome-screenshot", "-a", "-f", self.screenshot_path]
+                print("using gnome-screenshot")
+            elif os.path.isfile("/usr/bin/xfce4-screenshooter"):
+                ss_command = ["/usr/bin/xfce4-screenshooter", "-r", "-s", self.screenshot_path]
+                print("using xfce4-screenshooter")
+            elif os.path.isfile("/usr/bin/spectacle"):
+                ss_command = ["/usr/bin/spectacle", "-brn", "-o", self.screenshot_path]
+                print("using spectacle")
+
+            if ss_command is not None:
+                if os.path.isfile(self.screenshot_path):
+                    try:
+                        os.remove(self.screenshot_path)
+                    except Exception as e:
+                        self.show_message("{}".format(e), status=False)
+                self.start_process(ss_command)
+                self.in_progress = True
+            else:
+                self.show_message("<span color='red'><b>{}\n{}</b></span>".format(
+                    _("No screenshot application found on your system."),
+                    _("Supported applications are gnome-screenshot, xfce-screenshooter, kde-spectacle.")), status=False)
         else:
-            self.show_message("<span color='red'><b>{}\n{}</b></span>".format(
-                _("No screenshot application found on your system."),
-                _("Supported applications are gnome-screenshot, xfce-screenshooter, kde-spectacle.")), status=False)
+            print("Please wait...")
 
     def on_menu_quit_app(self, *args):
         self.main_window.get_application().quit()
@@ -197,6 +204,8 @@ class MainWindow(object):
         except Exception as e:
             print("{}".format(e))
             self.show_message("{}".format(e), status=False)
+
+        self.in_progress = False
 
     def show_message(self, content, status=True):
         if self.dialog:

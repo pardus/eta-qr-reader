@@ -200,7 +200,14 @@ class MainWindow(object):
                     self.show_message("{}".format(qr_data))
                 else:
                     print("No QR Code found.")
-                    self.show_message(_("No QR Code found."), status=False)
+                    self.show_message("{}\n{}".format(_("No QR Code found."),
+                                                      _("You have not selected a field containing a QR code.")),
+                                      status=False)
+        except FileNotFoundError as e:
+            print("{}".format(e))
+            self.show_message("{}\n{}\n\n<small>{}</small>".format(_("No QR Code found."),
+                                                                   _("You have not selected a field containing a QR code."), e),
+                              status=False)
         except Exception as e:
             print("{}".format(e))
             self.show_message("{}".format(e), status=False)

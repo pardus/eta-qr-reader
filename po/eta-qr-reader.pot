@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-04 02:07+0300\n"
+"POT-Creation-Date: 2025-07-14 16:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.py:64
+#: ui/MainWindow.glade:7 src/MainWindow.py:74
 msgid "ETA QR Reader"
 msgstr ""
 
-#: src/MainWindow.py:67
+#: src/MainWindow.py:77
 msgid "Read QR Code"
 msgstr ""
 
-#: src/MainWindow.py:71
+#: src/MainWindow.py:81
 msgid "Quit"
 msgstr ""
 
-#: src/MainWindow.py:99
+#: src/MainWindow.py:121
 msgid "No screenshot application found on your system."
 msgstr ""
 
-#: src/MainWindow.py:100
+#: src/MainWindow.py:122
 msgid ""
 "Supported applications are gnome-screenshot, xfce-screenshooter, kde-"
 "spectacle."
 msgstr ""
 
-#: src/MainWindow.py:167
+#: src/MainWindow.py:203 src/MainWindow.py:208
 msgid "No QR Code found."
 msgstr ""
 
-#: src/MainWindow.py:180
+#: src/MainWindow.py:204 src/MainWindow.py:209
+msgid "You have not selected a field containing a QR code."
+msgstr ""
+
+#: src/MainWindow.py:225
 msgid "QR Code Content"
 msgstr ""

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-14 16:48+0300\n"
-"PO-Revision-Date: 2025-07-14 16:49+0300\n"
+"POT-Creation-Date: 2025-07-14 16:57+0300\n"
+"PO-Revision-Date: 2025-07-14 16:57+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
 "Language: tr\n"
@@ -24,8 +24,8 @@ msgid "ETA QR Reader"
 msgstr "ETA QR Okuyucu"
 
 #: src/MainWindow.py:77
-msgid "Read QR Code"
-msgstr "QR Kod Oku"
+msgid "Select QR Area"
+msgstr "QR Alanını Seç"
 
 #: src/MainWindow.py:81
 msgid "Quit"
@@ -53,3 +53,6 @@ msgstr "Karekod(QR) içeren bir alan seçmediniz."
 #: src/MainWindow.py:225
 msgid "QR Code Content"
 msgstr "QR Kod İçeriği"
+
+#~ msgid "Read QR Code"
+#~ msgstr "QR Kod Oku"

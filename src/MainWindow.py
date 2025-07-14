@@ -74,7 +74,7 @@ class MainWindow(object):
         self.indicator.set_title(_("ETA QR Reader"))
         self.menu = Gtk.Menu()
         self.item_action = Gtk.MenuItem()
-        self.item_action.set_label(_("Read QR Code"))
+        self.item_action.set_label(_("Select QR Area"))
         self.item_action.connect("activate", self.on_menu_action)
         self.item_separator = Gtk.SeparatorMenuItem()
         self.item_quit = Gtk.MenuItem()

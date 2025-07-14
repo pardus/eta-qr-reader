@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Fatih Altun <fatih.altun@pardus.org.tr>, 2024.
+# Fatih Altun <fatih.altun@pardus.org.tr>, 2024-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-04 02:07+0300\n"
-"PO-Revision-Date: 2024-10-04 02:08+0300\n"
+"POT-Creation-Date: 2025-07-14 16:48+0300\n"
+"PO-Revision-Date: 2025-07-14 16:49+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
 "Language: tr\n"
@@ -19,33 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Gtranslator 42.0\n"
 
-#: src/MainWindow.py:64
+#: ui/MainWindow.glade:7 src/MainWindow.py:74
 msgid "ETA QR Reader"
 msgstr "ETA QR Okuyucu"
 
-#: src/MainWindow.py:67
+#: src/MainWindow.py:77
 msgid "Read QR Code"
 msgstr "QR Kod Oku"
 
-#: src/MainWindow.py:71
+#: src/MainWindow.py:81
 msgid "Quit"
 msgstr "Çıkış"
 
-#: src/MainWindow.py:99
+#: src/MainWindow.py:121
 msgid "No screenshot application found on your system."
 msgstr "Sisteminizde ekran görüntüsü uygulaması bulunamadı."
 
-#: src/MainWindow.py:100
+#: src/MainWindow.py:122
 msgid ""
 "Supported applications are gnome-screenshot, xfce-screenshooter, kde-"
 "spectacle."
 msgstr ""
 "Desteklenen uygulamalar; gnome-screenshot, xfce-screenshooter, kde-spectacle."
 
-#: src/MainWindow.py:167
+#: src/MainWindow.py:203 src/MainWindow.py:208
 msgid "No QR Code found."
 msgstr "QR Kod bulunamadı."
 
-#: src/MainWindow.py:180
+#: src/MainWindow.py:204 src/MainWindow.py:209
+msgid "You have not selected a field containing a QR code."
+msgstr "Karekod(QR) içeren bir alan seçmediniz."
+
+#: src/MainWindow.py:225
 msgid "QR Code Content"
 msgstr "QR Kod İçeriği"

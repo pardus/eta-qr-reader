@@ -98,9 +98,11 @@ class MainWindow(object):
                 self.dialog.destroy()
 
             ss_command = None
+            gs = False
             if os.path.isfile("/usr/bin/gnome-screenshot"):
                 ss_command = ["/usr/bin/gnome-screenshot", "-a", "-f", self.screenshot_path]
                 print("using gnome-screenshot")
+                gs = True
             elif os.path.isfile("/usr/bin/xfce4-screenshooter"):
                 ss_command = ["/usr/bin/xfce4-screenshooter", "-r", "-s", self.screenshot_path]
                 print("using xfce4-screenshooter")
@@ -114,6 +116,8 @@ class MainWindow(object):
                         os.remove(self.screenshot_path)
                     except Exception as e:
                         self.show_message("{}".format(e), status=False)
+                if gs:
+                    os.system("killall gnome-screenshot")
                 self.start_process(ss_command)
                 self.in_progress = True
             else:

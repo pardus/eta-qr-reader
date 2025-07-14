@@ -1,3 +1,15 @@
+eta-qr-reader (0.0.6) unstable; urgency=medium
+
+  * Fix retry action
+  * Update exception messages
+  * Update pot file
+  * Update Turkish translations
+  * Update qr menu action label
+  * Update pot file
+  * Update Turkish translations
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Mon, 14 Jul 2025 16:57:43 +0300
+
 eta-qr-reader (0.0.5) unstable; urgency=medium
 
   [ Fatih Altun ]

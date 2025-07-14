@@ -228,6 +228,10 @@ class MainWindow(object):
             else:
                 formatted_message += part
 
+        def on_retry_action(*args):
+            self.in_progress = False
+            self.on_menu_action()
+
         def on_link_clicked(*args):
             self.dialog.response(Gtk.ResponseType.OK)
 
@@ -260,7 +264,7 @@ class MainWindow(object):
             retry_button.props.valign = Gtk.Align.CENTER
             retry_button.props.halign = Gtk.Align.CENTER
             retry_button.add(retry_image)
-            retry_button.connect('clicked', self.on_menu_action)
+            retry_button.connect('clicked', on_retry_action)
             box.pack_start(retry_button, False, True, 0)
 
         box.set_margin_top(0)

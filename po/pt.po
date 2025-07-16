@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-04 02:07+0300\n"
-"PO-Revision-Date: 2024-10-31 21:46+0000\n"
+"POT-Creation-Date: 2025-07-14 16:57+0300\n"
+"PO-Revision-Date: 2025-07-16 23:34+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -17,36 +17,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
-#: src/MainWindow.py:64
+#: ui/MainWindow.glade:7 src/MainWindow.py:74
 msgid "ETA QR Reader"
 msgstr "Leitor QR ETA"
 
-#: src/MainWindow.py:67
-msgid "Read QR Code"
-msgstr "Ler código QR"
+#: src/MainWindow.py:77
+msgid "Select QR Area"
+msgstr "Selecionar área QR"
 
-#: src/MainWindow.py:71
+#: src/MainWindow.py:81
 msgid "Quit"
 msgstr "Sair"
 
-#: src/MainWindow.py:99
+#: src/MainWindow.py:121
 msgid "No screenshot application found on your system."
 msgstr "Nenhuma aplicação de captura de ecrã encontrada no sistema."
 
-#: src/MainWindow.py:100
+#: src/MainWindow.py:122
 msgid ""
 "Supported applications are gnome-screenshot, xfce-screenshooter, kde-"
 "spectacle."
 msgstr ""
-"As aplicações suportadas são gnome-screenshot, xfce-screenshooter, "
-"kde-spectacle."
+"As aplicações suportadas são gnome-screenshot, xfce-screenshooter, kde-"
+"spectacle."
 
-#: src/MainWindow.py:167
+#: src/MainWindow.py:203 src/MainWindow.py:208
 msgid "No QR Code found."
 msgstr "Nenhum código QR encontrado."
 
-#: src/MainWindow.py:180
+#: src/MainWindow.py:204 src/MainWindow.py:209
+msgid "You have not selected a field containing a QR code."
+msgstr "Não selecionou um campo que contenha um código QR."
+
+#: src/MainWindow.py:225
 msgid "QR Code Content"
 msgstr "Conteúdo do código QR"
+
+#~ msgid "Read QR Code"
+#~ msgstr "Ler código QR"

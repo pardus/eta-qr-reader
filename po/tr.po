@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-14 16:57+0300\n"
-"PO-Revision-Date: 2025-07-14 16:57+0300\n"
+"PO-Revision-Date: 2025-08-06 14:46+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
 "Language: tr\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: ui/MainWindow.glade:7 src/MainWindow.py:74
 msgid "ETA QR Reader"
-msgstr "ETA QR Okuyucu"
+msgstr "ETA Karekod Okuyucu"
 
 #: src/MainWindow.py:77
 msgid "Select QR Area"
-msgstr "QR Alanını Seç"
+msgstr "Karekod Alanını Seç"
 
 #: src/MainWindow.py:81
 msgid "Quit"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: src/MainWindow.py:203 src/MainWindow.py:208
 msgid "No QR Code found."
-msgstr "QR Kod bulunamadı."
+msgstr "Karekod(QR) bulunamadı."
 
 #: src/MainWindow.py:204 src/MainWindow.py:209
 msgid "You have not selected a field containing a QR code."
@@ -52,7 +52,7 @@ msgstr "Karekod(QR) içeren bir alan seçmediniz."
 
 #: src/MainWindow.py:225
 msgid "QR Code Content"
-msgstr "QR Kod İçeriği"
+msgstr "Karekod(QR) İçeriği"
 
 #~ msgid "Read QR Code"
 #~ msgstr "QR Kod Oku"

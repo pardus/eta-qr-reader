@@ -172,7 +172,7 @@ class MainWindow(object):
                     if i < len(decoded_objects) - 1:
                         qr_data += "\n\n-----\n\n"
                     print("{}".format(qr_data))
-                self.show_message("{}".format(qr_data))
+                self.show_message("{}".format(qr_data), escape=True)
             else:
                 print("No QR Code found. Trying image processing.")
                 # resize 5x
@@ -201,7 +201,7 @@ class MainWindow(object):
                         if i < len(decoded_objects) - 1:
                             qr_data += "\n\n-----\n\n"
                         print("{}".format(qr_data))
-                    self.show_message("{}".format(qr_data))
+                    self.show_message("{}".format(qr_data), escape=True)
                 else:
                     print("No QR Code found.")
                     self.show_message("{}\n{}".format(_("No QR Code found."),
@@ -218,7 +218,7 @@ class MainWindow(object):
 
         self.in_progress = False
 
-    def show_message(self, content, status=True):
+    def show_message(self, content, status=True, escape=False):
         if self.dialog:
             self.dialog.destroy()
         self.dialog = Gtk.MessageDialog(
@@ -234,10 +234,12 @@ class MainWindow(object):
 
         formatted_message = ""
         for part in parts:
+            # qr content can be anything, don't let it inject pango markup
+            text = GLib.markup_escape_text(part) if escape else part
             if re.match(url_regex, part):
-                formatted_message += "<a href='{}' title='{}'>{}</a>".format(part, part, part)
+                formatted_message += "<a href='{}' title='{}'>{}</a>".format(text, text, text)
             else:
-                formatted_message += part
+                formatted_message += text
 
         def on_retry_action(*args):
             self.in_progress = False

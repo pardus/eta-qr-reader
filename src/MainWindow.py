@@ -58,7 +58,7 @@ class MainWindow(object):
         self.main_window = self.GtkBuilder.get_object("ui_main_window")
 
     def define_variables(self):
-        self.screenshot_path = "/tmp/eta-qr-reader-screenshot-{}.png".format(GLib.get_user_name())
+        self.screenshot_path = os.path.join(GLib.get_user_runtime_dir(), "eta-qr-reader-screenshot.png")
         self.dialog = None
         self.in_progress = False
 
@@ -215,6 +215,11 @@ class MainWindow(object):
         except Exception as e:
             print("{}".format(e))
             self.show_message("{}".format(e), status=False)
+
+        try:
+            os.remove(self.screenshot_path)
+        except OSError:
+            pass
 
         self.in_progress = False
 
